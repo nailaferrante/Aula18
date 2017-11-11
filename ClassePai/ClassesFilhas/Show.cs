@@ -17,6 +17,7 @@ namespace ProjetoEvento.ClassePai.ClassesFilhas
             base.Lotacao = Lotacao;
             base.Duracao = Duracao;
             base.Classificacao = Classificacao;
+            base.Data = Data;
 
             this.Artista = Artista;
             this.GeneroMusical = GeneroMusical;
@@ -33,7 +34,7 @@ namespace ProjetoEvento.ClassePai.ClassesFilhas
                     Titulo + ";" +
                     Local + ";" +
                     Duracao + ";" +
-                    Data + ";" +
+                    Data.ToShortDateString() + ";" +
                     Artista + ";" +
                     GeneroMusical + ";" +
                     Lotacao + ";" +
@@ -66,7 +67,7 @@ namespace ProjetoEvento.ClassePai.ClassesFilhas
             while((linha=ler.ReadLine())!=null)
             {
                 string[] dados = linha.Split(';');
-                if(dados[0]==Titulo)
+                if(dados[0].ToUpper()==Titulo.ToUpper())
                 {
                     resultado = linha;
                     break;
@@ -83,7 +84,7 @@ namespace ProjetoEvento.ClassePai.ClassesFilhas
         }
     public override string Pesquisar(DateTime Data)
         {
-            string resultado = "Data não encontrado!";
+            string resultado = "Data não encontrada!";
 
             StreamReader ler = null;
 
@@ -95,7 +96,7 @@ namespace ProjetoEvento.ClassePai.ClassesFilhas
             while((linha=ler.ReadLine())!=null)
             {
                 string[] dados = linha.Split(';');
-                if(dados[3]==Data.ToString())
+                if(dados[3]==Data.ToShortDateString())
                 {
                     resultado = linha;
                     break;

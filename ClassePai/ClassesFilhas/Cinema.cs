@@ -6,7 +6,6 @@ namespace ProjetoEvento.ClassePai.ClassesFilhas
 {
     public class Cinema:Evento
     {
-        {
         public DateTime [] Sessao { get; set; }
         public string Genero { get; set; }
         public Cinema()
